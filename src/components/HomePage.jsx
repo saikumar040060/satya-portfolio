@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FaJava, FaAws, FaDocker, FaGithub, FaLinkedin,
@@ -53,7 +53,13 @@ function HomePage() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [activeTab, setActiveTab] = useState('all');
 
-  const texts = ['Building scalable microservices', 'Java Spring Boot specialist', 'AWS cloud deployments', 'API design & architecture', 'Backend Software Engineer'];
+  const texts = useMemo(() => [
+    'Building scalable microservices',
+    'Java Spring Boot specialist',
+    'AWS Certified Developer',
+    'Full-Stack Engineer',
+    'API design & architecture',
+  ], []);
 
   useEffect(() => {
     const typingSpeed = isDeleting ? 50 : 100;
@@ -89,7 +95,7 @@ function HomePage() {
               <span className="inline-block">Hi, I'm</span> <br />Satya Sai Kumar <br />Dwarapureddy
             </motion.h1>
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3, duration: 0.5 }} className="text-xl mb-8 text-gray-300 dark:text-gray-700">
-              Backend Engineer <span className="text-orange-400 dark:text-orange-600">•</span> Java & Spring Boot <span className="text-orange-400 dark:text-orange-600">•</span> AWS & Microservices
+              Full-Stack Engineer <span className="text-orange-400 dark:text-orange-600">•</span> Java & Spring Boot <span className="text-orange-400 dark:text-orange-600">•</span> AWS Certified
             </motion.p>
             <div className="h-16 text-2xl md:text-3xl mb-8 font-light text-orange-300 dark:text-orange-500">
               {texts[textIndex].substring(0, charIndex)}<span className="animate-pulse">|</span>
@@ -114,7 +120,7 @@ function HomePage() {
         <section id="skills" className="py-20 px-4 bg-gradient-to-br from-gray-900 to-black dark:from-gray-100 dark:to-white">
           <div className="max-w-6xl mx-auto">
             <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold mb-2 text-center text-orange-400 dark:text-orange-600">My Tech Stack</motion.h2>
-            <p className="text-gray-400 dark:text-gray-600 mb-12 text-center max-w-2xl mx-auto">Technologies I use to build high-performance backend systems</p>
+            <p className="text-gray-400 dark:text-gray-600 mb-12 text-center max-w-2xl mx-auto">Technologies I use to build high-performance full-stack systems</p>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6">
               {techStack.map((tech, index) => (
                 <motion.div key={tech.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.07, duration: 0.4 }} whileHover={{ y: -10, scale: 1.08 }} className="bg-gray-800 dark:bg-gray-200 p-5 rounded-xl shadow-md cursor-default relative group flex flex-col items-center">
@@ -135,23 +141,23 @@ function HomePage() {
               <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="md:w-1/3">
                 <div className="bg-gradient-to-br from-orange-400 to-orange-600 p-1 rounded-full">
                   <div className="bg-gray-900 dark:bg-white p-1 rounded-full">
-                    <img src="/profile.jpg" alt="Profile" className="rounded-full w-full aspect-square object-cover" />
+                    <img src="/profile.jpg" alt="Satya Sai Kumar" className="rounded-full w-full aspect-square object-cover" />
                   </div>
                 </div>
               </motion.div>
               <div className="md:w-2/3">
                 <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-3xl font-bold mb-6 text-orange-400 dark:text-orange-600">About Me</motion.h2>
                 <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="text-gray-300 dark:text-gray-700 mb-4 text-lg leading-relaxed">
-                  Backend Software Engineer with 3+ years building scalable systems using Java Spring Boot and microservices. Expert in RESTful APIs, cloud deployments on AWS, and distributed systems architecture.
+                  Full-Stack Software Engineer with 3+ years building scalable enterprise applications. Expertise in Java Spring Boot backend, React frontend, and AWS cloud infrastructure.
                 </motion.p>
                 <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="text-gray-300 dark:text-gray-700 mb-4 text-lg leading-relaxed">
-                  Previously Backend Developer at <span className="text-orange-400 font-semibold">Firstzen Solutions</span> (Hyderabad), where I designed REST APIs handling 10,000+ daily requests, led microservices migration achieving 20% performance improvement, and reduced database load by 50% using Redis caching.
+                  At <span className="text-orange-400 font-semibold">Firstzen Solutions</span>, led migration of <span className="text-orange-400 font-semibold">Honda's Global Production Control System (GPCS)</span> from legacy architecture to Spring Boot microservices — achieving 25% performance improvement and 30% deployment efficiency gains.
                 </motion.p>
-                <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="text-gray-300 dark:text-gray-700 mb-8 text-lg leading-relaxed">
-                  M.S. Computer Science graduate from <span className="text-orange-400 font-semibold">Lawrence Technological University</span>, Michigan (Dec 2025). B.Tech in ECE from ANITS, Visakhapatnam, India.
+                <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="text-gray-300 dark:text-gray-700 mb-4 text-lg leading-relaxed">
+                  <span className="text-orange-400 font-semibold">AWS Certified Developer</span> and <span className="text-orange-400 font-semibold">Oracle Certified Java SE Programmer</span>. M.S. Computer Science from Lawrence Technological University, Michigan (Dec 2025).
                 </motion.p>
                 <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="flex flex-wrap gap-4">
-                  {[{ value: '3+', label: 'Years Experience' }, { value: '10K+', label: 'Daily API Requests' }, { value: '90%+', label: 'Test Coverage' }, { value: '50%', label: 'DB Load Reduced' }].map((stat) => (
+                  {[{ value: '3+', label: 'Years Experience' }, { value: '10K+', label: 'Daily Users' }, { value: '25%', label: 'Performance Gain' }, { value: '99.9%', label: 'Uptime' }].map((stat) => (
                     <div key={stat.label} className="bg-gray-800/50 dark:bg-gray-200/50 border border-gray-700 dark:border-gray-300 rounded-lg p-4 flex-1 min-w-[130px]">
                       <div className="text-orange-400 dark:text-orange-600 text-3xl font-bold mb-1">{stat.value}</div>
                       <div className="text-gray-300 dark:text-gray-700 text-sm">{stat.label}</div>
@@ -169,9 +175,9 @@ function HomePage() {
             <p className="text-gray-400 dark:text-gray-600 mb-12 text-center">My professional journey</p>
             <div className="relative border-l-2 border-orange-400/30 ml-4 space-y-10">
               {[
-                { role: 'Graduate Teaching Assistant', company: 'Lawrence Technological University', location: 'Southfield, MI', period: 'Jun 2024 – Apr 2025', points: ['Built Python backend for automated student evaluation & grading systems', 'Mentored 50+ students in data structures, algorithms & backend development', 'Conducted technical sessions on API design, database design & system architecture'] },
-                { role: 'Backend Developer', company: 'Firstzen Solutions Private Limited', location: 'Hyderabad, India', period: 'Jan 2022 – Dec 2023', points: ['Designed RESTful APIs using Java Spring Boot handling 10,000+ daily requests with 99.9% uptime', 'Led migration to microservices architecture — 20% performance improvement', 'Implemented Redis caching reducing database load by 50%', 'Deployed on AWS (EC2, RDS, S3) with Docker & Jenkins CI/CD', 'Achieved 90%+ test coverage using JUnit and Mockito'] },
-                { role: 'Java Cloud Intern', company: 'Firstzen Solutions Private Limited', location: 'Hyderabad, India', period: 'May 2021 – Dec 2021', points: ['Developed Java backend services deployed on AWS using Spring Boot', 'Worked with MySQL databases — schema design and query optimization', 'Participated in code reviews in Agile/Scrum environment'] },
+                { role: 'Graduate Teaching Assistant', company: 'Lawrence Technological University', location: 'Southfield, MI', period: 'Jun 2024 – Apr 2025', points: ['Taught OOP, data structures & algorithms to 50+ graduate and undergraduate students', 'Developed automated evaluation systems using Python for assessing student code submissions', 'Mentored students in software development best practices, debugging & optimization'] },
+                { role: 'Software Engineer', company: 'Firstzen Solutions Private Limited', location: 'Hyderabad, India', period: 'Jan 2022 – Dec 2023', points: ['Led migration of Honda\'s GPCS from legacy Servlets/Struts to Spring Boot microservices', 'Engineered REST APIs handling 10,000+ daily users and 100,000+ requests/hour at peak', 'Achieved 25% reduction in API response latency through query optimization and Redis caching', 'Improved deployment efficiency by 30% with Jenkins CI/CD pipelines and Docker', 'Developed full-stack features using React/Angular frontends with Spring Boot backends', 'Received company award for outstanding contribution to GPCS migration project'] },
+                { role: 'Java Developer', company: 'Firstzen Solutions Private Limited', location: 'Hyderabad, India', period: 'May 2021 – Dec 2021', points: ['Developed enterprise Java applications using Spring Framework and Hibernate ORM', 'Built database access layers and optimized SQL queries for MySQL and Oracle', 'Participated in Agile ceremonies and collaborated with senior developers'] },
               ].map((exp, i) => (
                 <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }} className="ml-8 relative">
                   <div className="absolute -left-[2.85rem] top-1 w-4 h-4 rounded-full bg-orange-400 border-4 border-gray-900 dark:border-gray-50" />
@@ -198,7 +204,7 @@ function HomePage() {
         <section id="projects" className="py-20 px-4 bg-gray-800 dark:bg-gray-200">
           <div className="max-w-6xl mx-auto">
             <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold mb-2 text-center text-orange-400 dark:text-orange-600">Featured Projects</motion.h2>
-            <p className="text-gray-400 dark:text-gray-600 mb-10 text-center max-w-2xl mx-auto">Production-grade backend systems built with Java, Spring Boot, AWS & more.</p>
+            <p className="text-gray-400 dark:text-gray-600 mb-10 text-center max-w-2xl mx-auto">Production-grade systems built with Java, Spring Boot, React, AWS & more.</p>
             <div className="flex justify-center gap-3 mb-12 flex-wrap">
               {TABS.map((tab) => (
                 <motion.button key={tab} whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }} onClick={() => setActiveTab(tab)}
@@ -258,11 +264,11 @@ function HomePage() {
               <div className="md:w-1/2">
                 <h3 className="text-2xl font-bold mb-4 text-white dark:text-black">Key Highlights</h3>
                 <ul className="text-gray-300 dark:text-gray-700 mb-6 space-y-2 text-sm leading-relaxed">
-                  <li>▸ 3+ years Java / Spring Boot backend experience</li>
-                  <li>▸ Microservices, REST APIs, GraphQL & API design</li>
-                  <li>▸ AWS (EC2, S3, RDS, Lambda), Docker, Kubernetes</li>
-                  <li>▸ Kafka, RabbitMQ, Redis — event-driven systems</li>
-                  <li>▸ OAuth 2.0, JWT, Spring Security, RBAC</li>
+                  <li>▸ 3+ years Full-Stack engineering experience</li>
+                  <li>▸ Java, Spring Boot, React, Angular, Python</li>
+                  <li>▸ AWS Certified Developer — Associate</li>
+                  <li>▸ Oracle Certified Java SE Programmer</li>
+                  <li>▸ Led Honda GPCS migration — company award winner</li>
                   <li>▸ M.S. Computer Science — Lawrence Tech University</li>
                 </ul>
                 <motion.a whileHover={{ y: -3 }} whileTap={{ scale: 0.95 }} href="/satya_resume.pdf" download="Satya_Sai_Kumar_Resume.pdf" className="inline-flex items-center gap-2 bg-orange-400 dark:bg-orange-600 text-black px-6 py-3 rounded-full font-semibold hover:bg-orange-300 transition-colors">
@@ -278,7 +284,8 @@ function HomePage() {
             <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-10">
               <div>
                 <h3 className="text-2xl font-bold text-orange-400 dark:text-orange-600 mb-1">Satya Sai Kumar Dwarapureddy</h3>
-                <p className="text-gray-400 dark:text-gray-600">Backend Software Engineer · Open to Opportunities</p>
+                <p className="text-gray-400 dark:text-gray-600">Full-Stack Software Engineer · Open to Opportunities</p>
+                <p className="text-gray-500 dark:text-gray-500 text-sm mt-1">satyasaikumar.dev</p>
               </div>
               <div className="flex flex-col items-center md:items-end gap-3">
                 <div className="text-gray-300 dark:text-gray-700 text-sm mb-1">Let's connect</div>
@@ -293,7 +300,7 @@ function HomePage() {
             </div>
             <div className="pt-6 border-t border-gray-800 dark:border-gray-200 text-center text-gray-500 dark:text-gray-400 text-sm">
               <p>© {new Date().getFullYear()} Satya Sai Kumar Dwarapureddy. All rights reserved.</p>
-              <p className="mt-1">Built with React, Tailwind CSS & Framer Motion</p>
+              <p className="mt-1">satyasaikumar.dev · Built with React, Tailwind CSS & Framer Motion</p>
             </div>
           </div>
         </footer>
